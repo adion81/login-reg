@@ -6,7 +6,7 @@ module.exports = {
     register: (req,res) => {
         const user = new User(req.body);
         user.save()
-            .then( user => res.cookie("userToken", jwt.sign({id:user._id},secret),{httpOnly:true,expires:new Date(Date.now() + 9000000)}).json({msg:"success"}))
+            .then( user => res.cookie("usertoken", jwt.sign({id:user._id},process.env.JWT_KEY),{httpOnly:true,expires:new Date(Date.now() + 9000000)}).json({msg:"success"}))
             .catch(err => res.status(400).json(err.errors));
     },
     login:  (req,res) => {

@@ -25,7 +25,7 @@ const Register = props => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        Axios.post("http://localhost:8000/api/register",reg)
+        Axios.post("http://localhost:8000/api/register",reg,{withCredentials:true})
             .then(res => {
                 if(res.data.msg){
                     setReg(initialState);

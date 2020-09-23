@@ -22,7 +22,7 @@ const Login = props => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        Axios.post("http://localhost:8000/api/login",log)
+        Axios.post("http://localhost:8000/api/login",log,{withCredentials:true})
             .then(res => {
                 
               
